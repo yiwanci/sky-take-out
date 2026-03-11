@@ -1,5 +1,6 @@
 package com.sky.mapper;
 
+import ch.qos.logback.core.net.SMTPAppenderBase;
 import com.github.pagehelper.Page;
 import com.sky.dto.EmployeePageQueryDTO;
 import com.sky.entity.Employee;
@@ -29,4 +30,7 @@ public interface EmployeeMapper {
     Page pageQuery(EmployeePageQueryDTO employeePageQuery);
 
     void update(Employee  employee);
+
+    @Select("select * from employee where id = #{id}")
+    Employee getById(Long id);
 }
